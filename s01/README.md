@@ -590,21 +590,3 @@ aws_key_pair.mykey: Destroying... [id=mykey]
 aws_key_pair.mykey: Destruction complete after 0s
 
 Destroy complete! Resources: 2 destroyed.
-
-
-# TERRA_REPORT 2번
-
-## 설치 terraform init
-
-
-## terraform plan
-
-
-
-## terraform apply
-
-## Remote login
-
-
-
-## terraform destroy
