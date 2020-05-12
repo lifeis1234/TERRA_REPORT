@@ -27,4 +27,4 @@ resource "aws_instance" "example" {
     user        = var.INSTANCE_USERNAME
     private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
-}
+} 

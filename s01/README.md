@@ -1,4 +1,5 @@
 # TERRA_REPORT 1번
+## 순서 terraform init , terraform plan , terraform apply , 원격접속 으로
 ## 설치 terraform init
 ubuntu@u1:/mnt/hgfs/Desktop/terraform-course/05-Provisioner_Script$ terraform init
 
@@ -553,40 +554,50 @@ Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
 
 # Remote login
-ubuntu@u1:/mnt/hgfs/Desktop/terraform-course/05-Provisioner_Script$ ssh -i ~/mykey ubuntu@13.124.33.52
-Warning: Permanently added '13.124.33.52' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1065-aws x86_64)
+ubuntu@u1:/mnt/hgfs/Desktop/terraform-course/04-Provisioner_files$ ssh -i ~/mykey ubuntu@34.245.34.188
+Warning: Permanently added '34.245.34.188' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-1009-aws x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 11 10:36:41 UTC 2020
+  System information as of Tue May 12 09:04:44 UTC 2020
 
-  System load:  0.03              Processes:           91
-  Usage of /:   16.0% of 7.69GB   Users logged in:     0
-  Memory usage: 16%               IP address for eth0: 172.31.44.153
+  System load:  0.0               Processes:             99
+  Usage of /:   16.2% of 7.69GB   Users logged in:       0
+  Memory usage: 18%               IPv4 address for eth0: 172.31.43.68
   Swap usage:   0%
 
+0 updates can be installed immediately.
+0 of these updates are security updates.
 
-24 packages can be updated.
-16 updates are security updates.
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
 
 
-Last login: Mon May 11 10:33:04 2020 from 59.13.4.75
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
 
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-43-68:~$
 
 
 # Destroy terraform destroy
-ubuntu@u1:/mnt/hgfs/Desktop/terraform-course/05-Provisioner_Script$ terraform destroy -auto-approve
-aws_key_pair.mykey: Refreshing state... [id=mykey]
-aws_instance.example: Refreshing state... [id=i-03446810cc801011f]
-aws_instance.example: Destroying... [id=i-03446810cc801011f]
-aws_instance.example: Still destroying... [id=i-03446810cc801011f, 10s elapsed]
-aws_instance.example: Still destroying... [id=i-03446810cc801011f, 21s elapsed]
-aws_instance.example: Still destroying... [id=i-03446810cc801011f, 31s elapsed]
-aws_instance.example: Destruction complete after 31s
-aws_key_pair.mykey: Destroying... [id=mykey]
-aws_key_pair.mykey: Destruction complete after 0s
+ubuntu@u1:/mnt/hgfs/Desktop/terraform-course/04-Provisioner_files$ terraform apply -auto-approve
+aws_key_pair.mykey: Creating...
+aws_key_pair.mykey: Creation complete after 3s [id=mykey]
+aws_instance.example: Creating...
+aws_instance.example: Still creating... [10s elapsed]
+aws_instance.example: Still creating... [22s elapsed]
+aws_instance.example: Still creating... [32s elapsed]
+aws_instance.example: Creation complete after 41s [id=i-0a568a2d87956840c]
 
-Destroy complete! Resources: 2 destroyed.
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
